@@ -1,15 +1,33 @@
-// Write a program to Calculate sum of first N natural numbers.
+
+// Write a program to Find sum of digits of a number.
 #include <stdio.h>
 int main()
 {
     int n, sum = 0;
-    printf("Enter the number to be sum calculated-\n");
+    printf("Enter the number-\n");
     scanf("%d", &n);
-    for (int i = 0; n >= i; i++)
+    if (n > 0)
     {
-        sum = sum + i;
+        for (int i = 0; n > 0; i++)
+        {
+            sum = sum + (n % 10);
+            n = n / 10;
+        }
+        printf("The sum of digit of a number is %d\n", sum);
     }
-    printf("Sum of First %d natural number is %d", n, sum);
-
+    else if (n < 0)
+    {
+        n = -n;
+        for (int i = 0; n > 0; i++)
+        {
+            sum = sum + (n % 10);
+            n = n / 10;
+        }
+        printf("The sum of digit of a number is %d\n", sum);
+    }
+    else
+    {
+        printf("The sum of digit of a number is 0\n");
+    }
     return 0;
 }

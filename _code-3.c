@@ -1,23 +1,33 @@
-// Write a program to Find factorial of a number
+// Write a program to Find product of digits.
 #include <stdio.h>
 
 int main()
 {
-    int n, fact = 1;
-    printf("Enter the number-");
+    int n, product = 1;
+    printf("Enter the number-\n");
     scanf("%d", &n);
-    if (n == 0)
+    if (n > 0)
     {
-        printf(" The factorial of 0 is 1\n");
+        for (int i = 0; n > 0; i++)
+        {
+            product = product * (n % 10);
+            n = n / 10;
+        }
+        printf("The Product of a digit of a number is %d", product);
+    }
+    else if (n < 0)
+    {
+        n = -n;
+        for (int i = 0; n > 0; i++)
+        {
+            product = product * (n % 10);
+            n = n / 10;
+        }
+        printf("The Product of a digit of a number is %d", product);
     }
     else
     {
-        for (int i = n; i > 0; i--)
-        {
-            fact = fact * i;
-        }
-        printf("%d\n", fact);
+        printf("The Product of a digit of a number is 0\n");
     }
-
     return 0;
 }
